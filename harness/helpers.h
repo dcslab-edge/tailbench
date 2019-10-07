@@ -87,9 +87,17 @@ static int recvfull(int fd, char* msg, int len, int flags) {
     while (remaining > 0) {
         recvd = recv(fd, reinterpret_cast<void*>(cur), len, flags);
         if ((recvd == -1) || (recvd == 0)) break;
+        std::cerr << "in recvfull, recvd: " << recvd << std::endl;
+        std::cerr << "remaining before: " << remaining << std::endl;
         cur += recvd;
         remaining -= recvd;
+        std::cerr << "remaining after: " << remaining << std::endl;
     }
+
+    if (remaining < 0) {
+        std::cerr << "remaining: " << remaining << std::endl;
+    }
+
 
     return (len - remaining);
 }

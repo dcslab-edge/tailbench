@@ -211,7 +211,14 @@ size_t NetworkedServer::recvReq(int id, void** data) {
         
         recvd = recvfull(fd, req->data, req->len, 0);
 
-        success = checkRecv(recvd, req->len, fd);
+        std::cerr << "recvd:" << recvd << " expected:" << req->len << std::endl;
+        if (recvd != req->len){
+            std::cerr << "different" << std::endl;
+            success = checkRecv(recvd, recvd, fd);
+        }else{
+            success = checkRecv(recvd, req->len, fd);
+        }
+
         if (!success) continue;
     }
 
@@ -252,6 +259,7 @@ void NetworkedServer::sendResp(int id, const void* data, size_t len) {
     assert(sent == totalLen);
 
     ++finishedReqs;
+    std::cerr<<"finishedReqs: "<<finishedReqs<<std::endl;
 
     if (finishedReqs == warmupReqs) {
         resp->type = ROI_BEGIN;

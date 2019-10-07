@@ -58,8 +58,10 @@ void* recv(void* c) {
             client->finiReq(&resp);
         } else if (resp.type == ROI_BEGIN) {
             client->startRoi();
+            // add here time function 
         } else if (resp.type == FINISH) {
             client->dumpStats();
+            // add here time function 
             syscall(SYS_exit_group, 0);
         } else {
             std::cerr << "Unknown response type: " << resp.type << std::endl;
@@ -71,7 +73,7 @@ void* recv(void* c) {
 int main(int argc, char* argv[]) {
     int nthreads = getOpt<int>("TBENCH_CLIENT_THREADS", 1);
     std::string server = getOpt<std::string>("TBENCH_SERVER", "");
-    int serverport = getOpt<int>("TBENCH_SERVER_PORT", 8080);
+    int serverport = getOpt<int>("TBENCH_SERVER_PORT", 7373);
 
     NetworkedClient* client = new NetworkedClient(nthreads, server, serverport);
 
