@@ -179,7 +179,7 @@ int
 main(int argc, char** argv)
 {
     string modelFile = "model.xml";
-    int maxReqs = 6000; // Full MNIST test dataset
+    int maxReqs = 10000; // Full MNIST test dataset
     int nThreads = 1;
 
     int c;

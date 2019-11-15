@@ -1,0 +1,1 @@
+g++ -o xapian_server_networked main.o server.o ../harness/tbench_server_networked.o `./xapian-core-1.2.13/install/bin/xapian-config --libs` -lpthread -lrt

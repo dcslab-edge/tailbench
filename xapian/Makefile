@@ -16,8 +16,8 @@ LIBS = `$(XAPIAN_INSTALL_PATH)/xapian-config --libs` -lpthread -lrt
 # Targets and sources
 
 XAPIAN_INTEGRATED = xapian_integrated
-XAPIAN_NETWORKED_SERVER = xapian_networked_server
-XAPIAN_NETWORKED_CLIENT = xapian_networked_client
+XAPIAN_NETWORKED_SERVER = xapian_server_networked
+XAPIAN_NETWORKED_CLIENT = xapian_client_networked
 
 SERVER_SRCS = main.cpp server.cpp
 SERVER_HDRS = tsc.h server.h

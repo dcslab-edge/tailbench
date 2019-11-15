@@ -1,0 +1,2 @@
+export PKG_CONFIG_PATH=/ssd/tailbench/tailbench-v0.9/sphinx/sphinx-install/lib/pkgconfig && \
+g++ ../harness/tbench_server_networked.o decoder.o -o decoder_server_networked `pkg-config --libs pocketsphinx sphinxbase`  
