@@ -69,7 +69,7 @@ static int sendfull(int fd, const char* msg, int len, int flags) {
     while (remaining > 0) {
         sent = send(fd, reinterpret_cast<const void*>(cur), remaining, flags);
         if (sent == -1) {
-            std::cerr << "send() failed: " << strerror(errno) << std::endl;
+            //std::cerr << "[sendfull-server] send() failed: " << strerror(errno) << std::endl;
             break;
         }
         cur += sent;
@@ -85,19 +85,20 @@ static int recvfull(int fd, char* msg, int len, int flags) {
     int recvd;
 
     while (remaining > 0) {
-        recvd = recv(fd, reinterpret_cast<void*>(cur), len, flags);
+        recvd = recv(fd, reinterpret_cast<void*>(cur), remaining, flags);
         if ((recvd == -1) || (recvd == 0)) break;
-        std::cerr << "in recvfull, recvd: " << recvd << std::endl;
-        std::cerr << "remaining before: " << remaining << std::endl;
+        //std::cerr << "in recvfull, recvd: " << recvd << std::endl;
+        //std::cerr << "remaining before: " << remaining << std::endl;
         cur += recvd;
         remaining -= recvd;
-        std::cerr << "remaining after: " << remaining << std::endl;
+        //std::cerr << "remaining after: " << remaining << std::endl;
     }
-
+    /*
     if (remaining < 0) {
-        std::cerr << "remaining: " << remaining << std::endl;
+        //std::cerr << "remaining: " << remaining << std::endl;
+        std::cerr << "[ERROR] Receiving " << std::endl;
     }
-
+    */
 
     return (len - remaining);
 }

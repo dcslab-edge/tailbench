@@ -21,7 +21,7 @@ public class tbench {
     public static native void tBenchServerThreadStart();
     public static native void tBenchServerFinish();
     public static native byte[] tBenchRecvReq();
-    public static native void tBenchSendResp(byte[] data, int size);
+    public static native void tBenchSendResp(byte[] data, int size, int time);
 
     static {
         System.loadLibrary("tbench_jni");

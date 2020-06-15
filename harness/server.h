@@ -38,6 +38,8 @@ class Server {
         uint64_t finishedReqs;
         uint64_t maxReqs;
         uint64_t warmupReqs;
+        uint64_t warmupTime;
+        uint64_t measureTime;
 
         std::vector<ReqInfo> reqInfo; // Request info for each thread 
 
@@ -46,6 +48,8 @@ class Server {
             finishedReqs = 0;
             maxReqs = getOpt("TBENCH_MAXREQS", 0);
             warmupReqs = getOpt("TBENCH_WARMUPREQS", 0);
+            warmupTime = getOpt("TBENCH_WARMUPTIME", 0);
+            measureTime = getOpt("TBENCH_MEASURETIME", 0);
             reqInfo.resize(nthreads);
         }
 

@@ -37,11 +37,30 @@
 #include <sstream>
 #include <string>
 
+#include <signal.h>
+#include <unistd.h>
+#include <stdio.h>
+
+
+using namespace std;
+/*
+void sig_handler(int signo);
+
+// Predefined Signal Numbers-> SIGSTOP: 19, SIGCONT: 18, SIGKILL: 9
+void sig_handler(int signo) {
+  if(signo == 18){
+    cout << "I Received SIGNAL ("<< SIGCONT << ")" << endl;
+  }
+  else if(signo == 18){
+    cout << "I Received SIGNAL ("<< SIGSTOP << ")" << endl;
+  }
+}
+*/
 /*******************************************************************************
  * Client
  *******************************************************************************/
 
-using namespace std;
+//using namespace std;
 
 Client::Client(int _nthreads) {
     status = INIT;
@@ -164,9 +183,9 @@ void Client::dumpStatsStdout() {
     cout << "queue times, service times, sojorn times" << endl; 
     for (int r = 0; r < reqs; ++r){
         cout << "latencies: ";
-        cout << queueTimes[r]/1e6 << ", ";
-        cout << svcTimes[r]/1e6 << ", ";
-        cout << sjrnTimes[r]/1e6 << endl;
+        cout << queueTimes[r]/1e9 << ", ";
+        cout << svcTimes[r]/1e9 << ", ";
+        cout << sjrnTimes[r]/1e9 << endl;
 //        cout << "queueTimes["<< r <<"]: "<< queueTimes[r]/1e6 << ", ";
 //        cout << "svcTimes["<< r <<"]: "<< svcTimes[r]/1e6 << ", ";
 //        cout << "sjrnTimes["<< r <<"]: "<< sjrnTimes[r]/1e6 << endl;

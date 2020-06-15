@@ -40,12 +40,18 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <ctime>
+
+clock_t warmup_start, measure_start, cur_time;
+bool warmup_period = true;
+double warmup_duration, measure_duration;
 
 /*******************************************************************************
  * NetworkedServer
  *******************************************************************************/
 NetworkedServer::NetworkedServer(int nthreads, std::string ip, int port, \
         int nclients) 
+//        int nclients, int time) 
     : Server(nthreads)
 {
     pthread_mutex_init(&sendLock, nullptr);
@@ -157,8 +163,9 @@ bool NetworkedServer::checkRecv(int recvd, int expected, int fd) {
             std::cerr << "ERROR! recvd = " << recvd << ", expected = " \
                 << expected << std::endl;
             exit(-1);
+            //success = false;
         }
-        // assert(recvd == expected);
+        //assert(recvd == expected);
         success = true;
     }
 
@@ -205,20 +212,23 @@ size_t NetworkedServer::recvReq(int id, void** data) {
 
         req = &reqbuf[id];
         int recvd = recvfull(fd, reinterpret_cast<char*>(req), len, 0);
-
+        //std::cout << "req->id: " << req->id << std::endl; 
         success = checkRecv(recvd, len, fd);
         if (!success) continue;
         
         recvd = recvfull(fd, req->data, req->len, 0);
-
-        std::cerr << "recvd:" << recvd << " expected:" << req->len << std::endl;
+        success = checkRecv(recvd, req->len, fd);
+        //std::cerr << "recvd:" << recvd << " expected:" << req->len << std::endl;
+        /*
         if (recvd != req->len){
-            std::cerr << "different" << std::endl;
-            success = checkRecv(recvd, recvd, fd);
+            std::cerr << "recvd:" << recvd << " expected:" << req->len << std::endl;
+            std::cerr << "ERROR" << std::endl;
+            //success = checkRecv(recvd, recvd, fd);
+            success = checkRecv(recvd, req->len, fd);
         }else{
             success = checkRecv(recvd, req->len, fd);
         }
-
+        */
         if (!success) continue;
     }
 
@@ -256,26 +266,69 @@ void NetworkedServer::sendResp(int id, const void* data, size_t len) {
     int fd = activeFds[id];
     int totalLen = sizeof(Response) - MAX_RESP_BYTES + len;
     int sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
-    assert(sent == totalLen);
+    //assert(sent == totalLen);
 
     ++finishedReqs;
-    std::cerr<<"finishedReqs: "<<finishedReqs<<std::endl;
+    //std::cerr<<"finishedReqs: "<<finishedReqs<<std::endl;
 
-    if (finishedReqs == warmupReqs) {
-        resp->type = ROI_BEGIN;
-        for (int fd : clientFds) {
-            totalLen = sizeof(Response) - MAX_RESP_BYTES;
-            sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
-            assert(sent == totalLen);
-        }
-    } else if (finishedReqs == warmupReqs + maxReqs) { 
-        resp->type = FINISH;
-        for (int fd : clientFds) {
-            totalLen = sizeof(Response) - MAX_RESP_BYTES;
-            sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
-            assert(sent == totalLen);
-        }
+    if (finishedReqs == 1){
+       warmup_start = clock();
     }
+
+    cur_time = clock();
+    if (warmup_period){
+        warmup_duration = (double)(cur_time - warmup_start) / CLOCKS_PER_SEC;
+    }else{
+        measure_duration = (double)(cur_time - measure_start) / CLOCKS_PER_SEC;
+    }
+
+    if (warmup_period){
+        if (finishedReqs == warmupReqs || warmup_duration >= warmupTime) {
+            warmup_period = false;
+            //std::cerr<<"warmup time: "<<warmup_duration<<std::endl;
+            measure_start = clock();
+            resp->type = ROI_BEGIN;
+            for (int fd : clientFds) {
+                totalLen = sizeof(Response) - MAX_RESP_BYTES;
+                sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
+                assert(sent == totalLen);
+            }
+        } 
+    }else{
+        if (finishedReqs == warmupReqs + maxReqs || measure_duration >= measureTime) { 
+            //std::cerr<<"measure time: "<<measure_duration<<std::endl;
+            resp->type = FINISH;
+            for (int fd : clientFds) {
+                totalLen = sizeof(Response) - MAX_RESP_BYTES;
+                sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
+                assert(sent == totalLen);
+            }
+        } 
+    }
+
+
+
+//    if (finishedReqs == warmupReqs || warmup_duration >= warmupTime) {
+//        warmup_period = false;
+//        //warmup_end = clock();
+//        std::cerr<<"warmup time: "<<warmup_duration<<std::endl;
+//        measure_start = clock();
+//        resp->type = ROI_BEGIN;
+//        for (int fd : clientFds) {
+//            totalLen = sizeof(Response) - MAX_RESP_BYTES;
+//            sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
+//            assert(sent == totalLen);
+//        }
+//     } else if (finishedReqs == warmupReqs + maxReqs || measure_duration >= measureTime) { 
+//        std::cerr<<"measure time: "<<measure_duration<<std::endl;
+//        resp->type = FINISH;
+//        for (int fd : clientFds) {
+//            totalLen = sizeof(Response) - MAX_RESP_BYTES;
+//            sent = sendfull(fd, reinterpret_cast<const char*>(resp), totalLen, 0);
+//            assert(sent == totalLen);
+//        }
+//    }
+
 
     delete resp;
     
@@ -315,9 +368,11 @@ NetworkedServer* server;
  *******************************************************************************/
 void tBenchServerInit(int nthreads) {
     curTid = 0;
-    std::string serverurl = getOpt<std::string>("TBENCH_SERVER", "");
+    std::string serverurl = getOpt<std::string>("TBENCH_SERVER", "0.0.0.0");
     int serverport = getOpt<int>("TBENCH_SERVER_PORT", 8080);
     int nclients = getOpt<int>("TBENCH_NCLIENTS", 1);
+    //add for measure time
+    //start_time = clock(); 
     server = new NetworkedServer(nthreads, serverurl, serverport, nclients);
 }
 

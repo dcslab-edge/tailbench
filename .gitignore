@@ -3,4 +3,9 @@ lats.bin
 
 # .idea
 .idea
-
+xapian/xapian-core-1.2.13/
+*.tar
+*.tar.gz
+sphinx/pocketsphinx-5prealpha/
+sphinx/sphinxbase-5prealpha/
+sphinx/sphinx-install/

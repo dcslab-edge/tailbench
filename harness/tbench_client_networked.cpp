@@ -31,6 +31,7 @@ void* send(void* c) {
 
     while (true) {
         Request* req = client->startReq();
+        // skip requests that genNs is behind curNs ??
         if (!client->send(req)) {
             std::cerr << "[CLIENT] send() failed : " << client->errmsg() \
                 << std::endl;
