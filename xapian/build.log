@@ -1,0 +1,3 @@
+g++-5 -o xapian_integrated main.o server.o client.o ../harness/client.o ../harness/tbench_server_integrated.o `./xapian-core-1.2.13/install/bin/xapian-config --libs` -lpthread -lrt
+g++-5 -o xapian_server_networked main.o server.o ../harness/tbench_server_networked.o `./xapian-core-1.2.13/install/bin/xapian-config --libs` -lpthread -lrt
+g++-5 -o xapian_client_networked client.o ../harness/client.o ../harness/tbench_client_networked.o `./xapian-core-1.2.13/install/bin/xapian-config --libs` -lpthread -lrt

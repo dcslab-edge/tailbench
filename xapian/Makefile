@@ -8,16 +8,17 @@ TBENCH_SERVER_OBJ = $(TBENCH_PATH)/tbench_server_networked.o
 TBENCH_CLIENT_OBJ = $(TBENCH_PATH)/client.o $(TBENCH_PATH)/tbench_client_networked.o
 TBENCH_INTEGRATED_OBJ = $(TBENCH_PATH)/client.o $(TBENCH_PATH)/tbench_server_integrated.o
 
-CXX = g++
+CXX = g++-5
 XAPIAN_INSTALL_PATH = ./xapian-core-1.2.13/install/bin
 CXXFLAGS = -Wall -W -O3 -g -std=c++0x `$(XAPIAN_INSTALL_PATH)/xapian-config --cxxflags` -I$(TBENCH_PATH)
+#CXXFLAGS = -Wall -W -O3 -g -std=c++11 `$(XAPIAN_INSTALL_PATH)/xapian-config --cxxflags` -I$(TBENCH_PATH)
 LIBS = `$(XAPIAN_INSTALL_PATH)/xapian-config --libs` -lpthread -lrt
 
 # Targets and sources
 
 XAPIAN_INTEGRATED = xapian_integrated
-XAPIAN_NETWORKED_SERVER = xapian_networked_server
-XAPIAN_NETWORKED_CLIENT = xapian_networked_client
+XAPIAN_NETWORKED_SERVER = xapian_server_networked
+XAPIAN_NETWORKED_CLIENT = xapian_client_networked
 
 SERVER_SRCS = main.cpp server.cpp
 SERVER_HDRS = tsc.h server.h

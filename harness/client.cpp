@@ -42,6 +42,8 @@
  *******************************************************************************/
 
 using namespace std;
+uint64_t prev_max_Ns;
+uint64_t prev_diff_max_Ns;
 
 Client::Client(int _nthreads) {
     status = INIT;
@@ -95,11 +97,22 @@ Request* Client::startReq() {
     pthread_mutex_unlock(&lock);
 
     uint64_t curNs = getCurNs();
-
+    uint64_t cur_max_Ns = std::max(req->genNs, curNs);
+    uint64_t cur_diff_max_Ns = cur_max_Ns - prev_max_Ns;
+    float diff = (float) (prev_diff_max_Ns / cur_diff_max_Ns);
+    //std::cout << "["<<req->id <<"] "<< "diff: "<< req->genNs - curNs << " req->genNs: "<< req->genNs <<" curNs: "<< curNs << " max: "<< cur_max_Ns << " cur_diff_max_Ns: "<< cur_diff_max_Ns <<" diff: " << diff <<std::endl;
+    //std::cout << "["<<req->id <<"] "<< "req->genNs: "<< req->genNs <<" curNs: "<< curNs << " max: "<< std::max(req->genNs, curNs) << std::endl;
     if (curNs < req->genNs) {
         sleepUntil(std::max(req->genNs, curNs + minSleepNs));
     }
-
+    /*if(diff > 10.0){
+        uint64_t target_Ns = cur_max_Ns + cur_diff_max_Ns*10;
+        std::cout<< "target_Ns: "<< target_Ns << std::endl;
+        sleepUntil(target_Ns);
+    }
+    */
+    prev_max_Ns = cur_max_Ns;
+    prev_diff_max_Ns = cur_diff_max_Ns;
     return req;
 }
 
@@ -164,9 +177,9 @@ void Client::dumpStatsStdout() {
     cout << "queue times, service times, sojorn times" << endl; 
     for (int r = 0; r < reqs; ++r){
         cout << "latencies: ";
-        cout << queueTimes[r]/1e6 << ", ";
-        cout << svcTimes[r]/1e6 << ", ";
-        cout << sjrnTimes[r]/1e6 << endl;
+        cout << queueTimes[r]/1e9 << ", ";
+        cout << svcTimes[r]/1e9 << ", ";
+        cout << sjrnTimes[r]/1e9 << endl;
 //        cout << "queueTimes["<< r <<"]: "<< queueTimes[r]/1e6 << ", ";
 //        cout << "svcTimes["<< r <<"]: "<< svcTimes[r]/1e6 << ", ";
 //        cout << "sjrnTimes["<< r <<"]: "<< sjrnTimes[r]/1e6 << endl;
@@ -233,7 +246,9 @@ bool NetworkedClient::send(Request* req) {
 
     int len = sizeof(Request) - MAX_REQ_BYTES + req->len;
     int sent = sendfull(serverFd, reinterpret_cast<const char*>(req), len, 0);
+    //std::cout << "[send] sent: "<< sent << " len: "<< len << std::endl;
     if (sent != len) {
+        //std::cerr << "[send] sent: "<< sent << " len: "<< len << std::endl;
         error = strerror(errno);
     }
 

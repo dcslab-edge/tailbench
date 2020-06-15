@@ -1,0 +1,6 @@
+export PKG_CONFIG_PATH=/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/pkgconfig && \
+g++ client.o ../harness/client.o ../harness/tbench_server_integrated.o decoder.o -o decoder_integrated `pkg-config --libs pocketsphinx sphinxbase` 
+export PKG_CONFIG_PATH=/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/pkgconfig && \
+g++ ../harness/tbench_server_networked.o decoder.o -o decoder_server_networked `pkg-config --libs pocketsphinx sphinxbase`  
+export PKG_CONFIG_PATH=/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/pkgconfig && \
+g++ client.o ../harness/client.o ../harness/tbench_client_networked.o -o decoder_client_networked `pkg-config --libs pocketsphinx sphinxbase` 

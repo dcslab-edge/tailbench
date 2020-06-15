@@ -69,7 +69,7 @@ static int sendfull(int fd, const char* msg, int len, int flags) {
     while (remaining > 0) {
         sent = send(fd, reinterpret_cast<const void*>(cur), remaining, flags);
         if (sent == -1) {
-            std::cerr << "send() failed: " << strerror(errno) << std::endl;
+            //std::cerr << "[sendfull] send() failed: " << strerror(errno) << std::endl;
             break;
         }
         cur += sent;
@@ -85,7 +85,7 @@ static int recvfull(int fd, char* msg, int len, int flags) {
     int recvd;
 
     while (remaining > 0) {
-        recvd = recv(fd, reinterpret_cast<void*>(cur), len, flags);
+        recvd = recv(fd, reinterpret_cast<void*>(cur), remaining, flags);
         if ((recvd == -1) || (recvd == 0)) break;
         cur += recvd;
         remaining -= recvd;

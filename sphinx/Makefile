@@ -10,7 +10,7 @@ TBENCH_INTEGRATED_OBJS = $(TBENCHDIR)/client.o \
 CXXFLAGS = -DMODELDIR=\"`pkg-config --variable=modeldir pocketsphinx`\" \
 		     `pkg-config --cflags --libs pocketsphinx sphinxbase` \
 			 -I$(TBENCHDIR) -g -O3 -std=c++0x
-LDFLAGS = -pthread -lrt
+LDFLAGS =
 
 .PHONY : all clean run zsim
 

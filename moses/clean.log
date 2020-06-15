@@ -1,0 +1,37 @@
+/ssd2/tailbench/tailbench/moses/jam-files/engine /ssd2/tailbench/tailbench/moses
+###
+### Using 'gcc' toolset.
+###
+rm -rf bootstrap
+mkdir bootstrap
+gcc -o bootstrap/jam0 command.c compile.c constants.c debug.c function.c glob.c hash.c hdrmacro.c headers.c jam.c jambase.c jamgram.c lists.c make.c make1.c object.c option.c output.c parse.c pathunix.c regexp.c rules.c scan.c search.c subst.c timestamp.c variable.c modules.c strings.c filesys.c builtins.c pwd.c class.c native.c md5.c w32_getreg.c modules/set.c modules/path.c modules/regex.c modules/property-set.c modules/sequence.c modules/order.c execunix.c fileunix.c
+./bootstrap/jam0 -f build.jam --toolset=gcc --toolset-root= clean
+...found 1 target...
+...updating 1 target...
+...updated 1 target...
+./bootstrap/jam0 -f build.jam --toolset=gcc --toolset-root=
+...found 50 targets...
+...updating 3 targets...
+[MKDIR] bin.linuxx86_64
+[COMPILE] bin.linuxx86_64/b2
+function.c: In function ‘argument_list_print’:
+function.c:3109:25: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘OBJECT * {aka struct _object *}’ [-Wformat=]
+                 printf( "%s", formal_arg->arg_name );
+                         ^
+[COPY] bin.linuxx86_64/bjam
+...updated 3 targets...
+/ssd2/tailbench/tailbench/moses
+/ssd2/tailbench/tailbench/moses/jam-files/sanity.jam:158: in boost
+*** argument error
+* rule constant ( name : value + )
+* called with: ( BOOST-VERSION :  )
+* missing argument value
+/ssd2/tailbench/tailbench/moses/jam-files/boost-build/build/project.jam:1006:see definition of rule 'constant' being called
+Jamroot:75: in modules.load
+/ssd2/tailbench/tailbench/moses/jam-files/boost-build/build/project.jam:317: in load-jamfile
+/ssd2/tailbench/tailbench/moses/jam-files/boost-build/build/project.jam:62: in load
+/ssd2/tailbench/tailbench/moses/jam-files/boost-build/build/project.jam:168: in project.find
+/ssd2/tailbench/tailbench/moses/jam-files/boost-build/build-system.jam:570: in load
+./jam-files/boost-build/kernel/modules.jam:283: in import
+./jam-files/boost-build/kernel/bootstrap.jam:142: in boost-build
+./jam-files/boost-build/boost-build.jam:8: in module scope

@@ -26,6 +26,9 @@
 #include <string>
 #include <vector>
 
+//yjchoi
+#include <time.h>
+
 void* send(void* c) {
     NetworkedClient* client = reinterpret_cast<NetworkedClient*>(c);
 
@@ -46,6 +49,10 @@ void* send(void* c) {
 void* recv(void* c) {
     NetworkedClient* client = reinterpret_cast<NetworkedClient*>(c);
 
+    time_t start, end;
+    double result;
+
+
     Response resp;
     while (true) {
         if (!client->recv(&resp)) {
@@ -56,10 +63,17 @@ void* recv(void* c) {
 
         if (resp.type == RESPONSE) {
             client->finiReq(&resp);
+            //std::cerr << "RESPONSE"<<std::endl;
         } else if (resp.type == ROI_BEGIN) {
             client->startRoi();
+            std::cerr << "ROI_BEGIN"<<std::endl;
+            start = time(NULL);
         } else if (resp.type == FINISH) {
-            client->dumpStats();
+            //client->dumpStats();
+            client->dumpStatsStdout();
+            end = time(NULL);
+            result = (double)(end-start);
+            //std::cout << "measurement time: " << result << std::endl;
             syscall(SYS_exit_group, 0);
         } else {
             std::cerr << "Unknown response type: " << resp.type << std::endl;
