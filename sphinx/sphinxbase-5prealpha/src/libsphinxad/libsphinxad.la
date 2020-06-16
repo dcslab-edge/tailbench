@@ -17,7 +17,7 @@ old_library='libsphinxad.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' /ssd2/tailbench/tailbench/sphinx/sphinxbase-5prealpha/src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack'
+dependency_libs=' /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinxbase-5prealpha/src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,5 +38,5 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib'
-relink_command="(cd /ssd2/tailbench/tailbench/sphinx/sphinxbase-5prealpha/src/libsphinxad; /bin/bash /ssd2/tailbench/tailbench/sphinx/sphinxbase-5prealpha/libtool  --tag CC --mode=relink gcc -I../../include/sphinxbase -I../../include -I../../include -g -O2 -Wall -version-info 3:0:0 -o libsphinxad.la -rpath /ssd2/tailbench/tailbench/sphinx/sphinx-install/lib ad_oss.lo ../../src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack @inst_prefix_dir@)"
+libdir='/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib'
+relink_command="(cd /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinxbase-5prealpha/src/libsphinxad; /bin/bash /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinxbase-5prealpha/libtool  --tag CC --mode=relink gcc -I../../include/sphinxbase -I../../include -I../../include -g -O2 -Wall -version-info 3:0:0 -o libsphinxad.la -rpath /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib ad_oss.lo ../../src/libsphinxbase/libsphinxbase.la -lpthread -lm -lblas -llapack @inst_prefix_dir@)"

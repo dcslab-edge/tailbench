@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib'
+libdir='/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib'

@@ -17,7 +17,7 @@ old_library='libgstpocketsphinx.a'
 inherited_linker_flags=' -pthread'
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/lib -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxad -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxbase -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 -lgstaudio-1.0 /ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/libpocketsphinx.la /ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/libsphinxbase.la -lpthread -lm -lblas -llapack'
+dependency_libs=' -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/lib -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxad -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxbase -lgstbase-1.0 -lgstreamer-1.0 -lgobject-2.0 -lglib-2.0 -lgstaudio-1.0 /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/libpocketsphinx.la /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/libsphinxbase.la -lpthread -lm -lblas -llapack'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/gstreamer-1.0'
+libdir='/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/gstreamer-1.0'

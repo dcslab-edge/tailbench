@@ -19,7 +19,7 @@ fsg_lextree.lo: fsg_lextree.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h /usr/include/assert.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/ckd_alloc.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/ckd_alloc.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
@@ -35,30 +35,30 @@ fsg_lextree.lo: fsg_lextree.c /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp2.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/sphinxbase_export.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/prim_type.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinx_config.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/err.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/sphinxbase_export.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/prim_type.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinx_config.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/err.h \
  /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  fsg_lextree.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/cmd_ln.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fsg_model.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/glist.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/logmath.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/bitvec.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/hash_table.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/listelem_alloc.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/cmd_ln.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fsg_model.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/glist.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/logmath.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/bitvec.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/hash_table.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/listelem_alloc.h \
  hmm.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fixpoint.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fixpoint.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h bin_mdef.h \
- /ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/mmio.h \
+ /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/mmio.h \
  ../../include/pocketsphinx_export.h mdef.h dict.h s3types.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/float.h dict2pid.h
 
@@ -120,7 +120,7 @@ fsg_lextree.lo: fsg_lextree.c /usr/include/stdc-predef.h \
 
 /usr/include/assert.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/ckd_alloc.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/ckd_alloc.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -158,13 +158,13 @@ fsg_lextree.lo: fsg_lextree.c /usr/include/stdc-predef.h \
 
 /usr/include/x86_64-linux-gnu/bits/setjmp2.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/sphinxbase_export.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/sphinxbase_export.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/prim_type.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/prim_type.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinx_config.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinx_config.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/err.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/err.h:
 
 /usr/include/errno.h:
 
@@ -180,23 +180,23 @@ fsg_lextree.lo: fsg_lextree.c /usr/include/stdc-predef.h \
 
 fsg_lextree.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/cmd_ln.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/cmd_ln.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fsg_model.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fsg_model.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/glist.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/glist.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/logmath.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/logmath.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/bitvec.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/bitvec.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/hash_table.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/hash_table.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/listelem_alloc.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/listelem_alloc.h:
 
 hmm.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fixpoint.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/fixpoint.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed/limits.h:
 
@@ -214,7 +214,7 @@ hmm.h:
 
 bin_mdef.h:
 
-/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/mmio.h:
+/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/include/sphinxbase/mmio.h:
 
 ../../include/pocketsphinx_export.h:
 

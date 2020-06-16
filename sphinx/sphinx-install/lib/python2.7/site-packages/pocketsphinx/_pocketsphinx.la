@@ -17,7 +17,7 @@ old_library='_pocketsphinx.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/lib -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxad -L/ssd2/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxbase /ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/libpocketsphinx.la /ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/libsphinxbase.la -lpthread -lm -lblas -llapack'
+dependency_libs=' -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/lib -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxad -L/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/pocketsphinx-5prealpha/../sphinxbase-5prealpha/src/libsphinxbase /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/libpocketsphinx.la /home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/libsphinxbase.la -lpthread -lm -lblas -llapack'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/ssd2/tailbench/tailbench/sphinx/sphinx-install/lib/python2.7/site-packages/pocketsphinx'
+libdir='/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install/lib/python2.7/site-packages/pocketsphinx'

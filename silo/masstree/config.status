@@ -433,7 +433,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/scratch/harshad/tbd/tailbench-toplevel/silo-tbd2/masstree'
+ac_pwd='/home/dcslab/ysnam/benchmarks/tailbench/tailbench/silo/masstree'
 srcdir='.'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
@@ -636,6 +636,7 @@ S["infodir"]="${datarootdir}/info"
 S["docdir"]="${datarootdir}/doc/${PACKAGE_TARNAME}"
 S["oldincludedir"]="/usr/include"
 S["includedir"]="${prefix}/include"
+S["runstatedir"]="${localstatedir}/run"
 S["localstatedir"]="${prefix}/var"
 S["sharedstatedir"]="${prefix}/com"
 S["sysconfdir"]="${prefix}/etc"
@@ -746,6 +747,7 @@ D["HAVE_CXX_TEMPLATE_ALIAS"]=" 1"
 D["HAVE_TYPE_TRAITS"]=" 1"
 D["HAVE_STD_HASH"]=" 1"
 D["HAVE___HAS_TRIVIAL_COPY"]=" 1"
+D["HAVE_STD_IS_TRIVIALLY_COPYABLE"]=" 1"
 D["HAVE_STD_IS_RVALUE_REFERENCE"]=" 1"
 D["HAVE_JEMALLOC"]=" 1"
 D["HAVE_OFF_T_IS_LONG"]=" 1"

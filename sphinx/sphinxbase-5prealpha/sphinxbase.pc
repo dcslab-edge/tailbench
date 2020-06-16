@@ -1,4 +1,4 @@
-prefix=/ssd2/tailbench/tailbench/sphinx/sphinx-install
+prefix=/home/dcslab/ysnam/benchmarks/tailbench/tailbench/sphinx/sphinx-install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

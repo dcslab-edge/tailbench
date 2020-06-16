@@ -28,7 +28,7 @@
 #error The C++ ABI version of compiler you are using does not match
 #error that of the compiler used to build the library. The versions
 #error must match or your program will not work correctly.
-#error The Xapian library was built with g++ 5.5.0
+#error The Xapian library was built with g++ 5.4.0
 #endif
 
 #ifdef _GLIBCXX_DEBUG

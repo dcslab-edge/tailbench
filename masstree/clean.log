@@ -1,2 +1,1 @@
-cat clean.sh >clean 
-chmod a+x clean
+make: 'clean' is up to date.
