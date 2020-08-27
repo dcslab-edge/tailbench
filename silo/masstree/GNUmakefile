@@ -1,6 +1,6 @@
 AR = ar
 CC = gcc
-CXX = g++ -std=gnu++0x
+CXX = g++
 CFLAGS = -g -W -Wall -O3
 DEPSDIR := .deps
 DEPCFLAGS = -MD -MF $(DEPSDIR)/$*.d -MP

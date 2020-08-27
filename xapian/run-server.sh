@@ -1,17 +1,17 @@
 #!/bin/bash
 
-DATA_ROOT=/ssd/tailbench/tailbench.inputs
-NSERVERS=2
+DATA_ROOT=/ssd2/tailbench/tailbench.inputs
+NSERVERS=8
 #WARMUPREQS=1000
-WARMUPREQS=100000
-#REQUESTS=10000
+WARMUPREQS=1000
+#REQUESTS=100000
 REQUESTS=100000
 SERVER_PORT=7313
-WARMUP_TIME=5
-MEASURE_TIME=60
+WARMUP_TIME=10
+MEASURE_TIME=120
 
 TBENCH_WARMUPTIME=${WARMUP_TIME} TBENCH_MEASURETIME=${MEASURE_TIME} TBENCH_NCLIENTS=1 TBENCH_SERVER=0.0.0.0 TBENCH_SERVER_PORT=${SERVER_PORT} TBENCH_MAXREQS=${REQUESTS} TBENCH_WARMUPREQS=${WARMUPREQS} \
-    /ssd/tailbench/tailbench-v0.9/xapian/xapian_server_networked -n ${NSERVERS} -d ${DATA_ROOT}/xapian/wiki \
+    /ssd2/tailbench/tailbench/xapian/xapian_server_networked -n ${NSERVERS} -d ${DATA_ROOT}/xapian/wiki \
     -r 1000000000 
 
 echo $! > server.pid

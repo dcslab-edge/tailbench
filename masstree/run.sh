@@ -1,5 +1,6 @@
 #!/bin/bash
 
+NTHREADS=16
 if [[ -z "${NTHREADS}" ]]; then NTHREADS=1; fi
 
 QPS=1000
